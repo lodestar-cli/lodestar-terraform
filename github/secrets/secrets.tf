@@ -41,3 +41,15 @@ resource "github_actions_secret" "github_access_token" {
   secret_name      = "GIT_TOKEN"
   plaintext_value  = data.sops_file.github_actions_sops_secrets.data["github-token"]
 }
+
+resource "github_actions_secret" "github_username_action" {
+  repository       = "lodestar-action"
+  secret_name      = "GIT_USER"
+  plaintext_value  = data.sops_file.github_actions_sops_secrets.data["github-username"]
+}
+
+resource "github_actions_secret" "github_access_token_action" {
+  repository       = "lodestar-action"
+  secret_name      = "GIT_TOKEN"
+  plaintext_value  = data.sops_file.github_actions_sops_secrets.data["github-token"]
+}
